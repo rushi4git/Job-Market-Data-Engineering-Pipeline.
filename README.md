@@ -16,10 +16,12 @@ This project builds a serverless data pipeline on AWS to analyze real-time job m
 - **APIs**: Adzuna, Arbeitnow
 - **AWS Services**:
   - AWS Lambda (ETL execution)
+  - Amazon CloudWatch (monitoring)
   - Amazon S3 (storage)
+  - Glue Crawler.
   - AWS Glue (catalog)
   - AWS Athena (SQL querying)
-  - Amazon CloudWatch (monitoring)
+  
 
 ## 🚀 Architecture Overview
 
@@ -87,20 +89,25 @@ Each transformation result is stored as a separate CSV in `processed/`.
 
 ## 🧪 AWS Setup
 
-### ✅ Lambda Function
+### ✅ S3 (Simple Storage Service): 
+- Amazon S3 (Simple Storage Service) is a highly scalable object storage service that can store and retrieve any amount of data from anywhere on the web.
+- It is commonly used to store and distribute large media files, data backups, and static website files.
 
+### ✅ Lambda Function
 - Triggered via S3 event on upload to `job_data/` with `.json` suffix
 - Performs all transformations and writes processed CSVs to `processed/` subfolders
 
 ### ✅ Glue Crawler
-
 - Points to the `processed/` prefix
 - Creates separate tables in a single database (one per transformation output)
+  
+### ✅  Data Catalog: 
+- AWS Data Catalog is a fully managed metadata repository that makes it easy to discover and manage data in AWS.
+- You can use the Glue Data Catalog with other AWS services, such as Athena.
 
 ### ✅ Athena
-
 - Query the output tables for analytics and visualization
-
+  
 ---
 
 ## 🛠️ How to Run
