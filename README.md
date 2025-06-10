@@ -54,7 +54,7 @@ This project builds a serverless data pipeline on AWS to analyze real-time job m
 5. **Athena**
    - Queries data for trend analysis, reports, or dashboards
    - 
-![Architecture Diagram.](https://github.com/rushi4git/spotify-end-to-end-data-engineering-project/blob/main/architecture_diagram_spotify.jpg)
+![Architecture Diagram.](https://github.com/rushi4git/Job-Market-Data-Engineering-Pipeline./blob/main/architecture_diagram_job_board.jpg)
 ---
 
 ## 📂 Folder Structure in S3
@@ -104,17 +104,28 @@ Each transformation result is stored as a separate CSV in `processed/`.
 ---
 
 ## 🛠️ How to Run
-1.Clone this repo
-2.Set up your AWS credentials
-3.Deploy the Lambda using AWS Console or SAM/CDK
-4.Upload raw .json files into the job_data/ folder in S3
+1. Clone this repo
+2. Set up your AWS credentials
+3. Deploy the Lambda using AWS Console or SAM/CDK
+4. Upload raw .json files into the job_data/ folder in S3
 5.Trigger fires → data processed → Glue crawler updates → Athena ready
 
+---
+
+### Project Execution Flow
+Extract Data from API -> Lambda Trigger (every 1 day) -> Run Extract Code -> Store Raw Data -> Trigger Transform Function -> Transform Data and Load It -> Query Using Athena
+
+---
+
 📌 Future Improvements
-1.Add data quality checks
-2.Integrate with BI tools like QuickSight
+1. Add data quality checks
+2. Integrate with BI tools like QuickSight
+
+---
 
 🧑‍💻 Author
+
 Rushikesh Rajulwar
+
 Data Engineer | Python & AWS | [LinkedIn](https://www.linkedin.com/in/rushikesh-rajulwar/).
 
