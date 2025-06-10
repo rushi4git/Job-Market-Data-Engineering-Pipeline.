@@ -53,7 +53,7 @@ This project builds a serverless data pipeline on AWS to analyze real-time job m
 
 5. **Athena**
    - Queries data for trend analysis, reports, or dashboards
-   - 
+     
 ![Architecture Diagram.](https://github.com/rushi4git/Job-Market-Data-Engineering-Pipeline./blob/main/architecture_diagram_job_board.jpg)
 ---
 
